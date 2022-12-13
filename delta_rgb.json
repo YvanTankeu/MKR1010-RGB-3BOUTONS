@@ -1,0 +1,462 @@
+{
+  "ruleChain": {
+    "additionalInfo": {
+      "description": ""
+    },
+    "name": "delta RGB",
+    "type": "CORE",
+    "firstRuleNodeId": null,
+    "root": false,
+    "debugMode": true,
+    "configuration": null
+  },
+  "metadata": {
+    "firstNodeIndex": 20,
+    "nodes": [
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 340,
+          "layoutY": 501
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "111",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return (msg.btn_Jaune ==1 && msg.btn_Rouge==1 && msg.btn_Rouge==1);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 628,
+          "layoutY": 497
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Jaune Rouge Bleue",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "metadata.Delta_SB_1 = msg.Delta_SB_1;\nmetadata.Delta_SB_2 = msg.Delta_SB_2;\nmetadata.Delta_SB_3 = msg.Delta_SB_3;\n\nmetadata.Statut_Broche_1 = msg.SB_1;\nmetadata.Statut_Broche_2 = msg.SB_2;\nmetadata.Statut_Broche_3 = msg.SB_3;\nmetadata.message=\"Jaune Rouge Bleue\";\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 335,
+          "layoutY": 429
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "001",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return (msg.btn_Jaune ==0 && msg.btn_Rouge==0 && msg.btn_Rouge==1);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 321,
+          "layoutY": 192
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "110",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return (msg.btn_Jaune ==1 && msg.btn_Rouge==1 && msg.btn_Rouge==0);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 622,
+          "layoutY": 276
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Eteint Rouge Eteint",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "metadata.Delta_SB_1 = msg.Delta_SB_1;\nmetadata.Delta_SB_2 = msg.Delta_SB_2;\nmetadata.Delta_SB_3 = msg.Delta_SB_3;\n\nmetadata.Statut_Broche_1 = msg.SB_1;\nmetadata.Statut_Broche_2 = msg.SB_2;\nmetadata.Statut_Broche_3 = msg.SB_3;\nmetadata.message=\"Eteint Rouge Eteint\";\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 622,
+          "layoutY": 340
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Eteint Rouge Bleue",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "metadata.Delta_SB_1 = msg.Delta_SB_1;\nmetadata.Delta_SB_2 = msg.Delta_SB_2;\nmetadata.Delta_SB_3 = msg.Delta_SB_3;\n\nmetadata.Statut_Broche_1 = msg.SB_1;\nmetadata.Statut_Broche_2 = msg.SB_2;\nmetadata.Statut_Broche_3 = msg.SB_3;\nmetadata.message=\"Eteint Rouge Bleue\";\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 623,
+          "layoutY": 411
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Eteint Etient Bleue",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "metadata.Delta_SB_1 = msg.Delta_SB_1;\nmetadata.Delta_SB_2 = msg.Delta_SB_2;\nmetadata.Delta_SB_3 = msg.Delta_SB_3;\n\nmetadata.Statut_Broche_1 = msg.SB_1;\nmetadata.Statut_Broche_2 = msg.SB_2;\nmetadata.Statut_Broche_3 = msg.SB_3;\nmetadata.message=\"Eteint Etient Bleue\";\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 328,
+          "layoutY": 272
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "010",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return (msg.btn_Jaune ==0 && msg.btn_Rouge==1 && msg.btn_Rouge==0);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 336,
+          "layoutY": 338
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "011",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return (msg.btn_Jaune ==0 && msg.btn_Rouge==1 && msg.btn_Rouge==1);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 65,
+          "layoutY": 470
+        },
+        "type": "org.thingsboard.rule.engine.metadata.CalculateDeltaNode",
+        "name": "DeltaBleue",
+        "debugMode": true,
+        "configuration": {
+          "inputValueKey": "SB_3",
+          "outputValueKey": "Delta_SB_3",
+          "useCache": true,
+          "addPeriodBetweenMsgs": false,
+          "periodValueKey": "periodInMs",
+          "round": null,
+          "tellFailureIfDeltaIsNegative": true
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 349,
+          "layoutY": 586
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Courriel_Moteur_Aucun_Changement",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "metadata.delta_sb_1 = msg.Delta_SB_1;\nmetadata.delta_sb_2 = msg.Delta_SB_2;\n\nmetadata.Statut_Broche_1 = msg.SB_1;\nmetadata.Statut_Broche_2 = msg.SB_2;\nmetadata.message=\"Aucun Changement\"\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 85,
+          "layoutY": 549
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "DeltaChange_Then_Email",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return !(msg.Delta_SB_1 == 0 || msg.Delta_SB_2 == 0|| msg.Delta_SB_3 == 0)"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 282,
+          "layoutY": 35
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "100",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return (msg.btn_Jaune ==1 && msg.btn_Rouge==0 && msg.btn_Rouge==0);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 617,
+          "layoutY": 75
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Jaune Eteint Eteint",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "metadata.Delta_SB_1 = msg.Delta_SB_1;\nmetadata.Delta_SB_2 = msg.Delta_SB_2;\nmetadata.Delta_SB_3 = msg.Delta_SB_3;\n\nmetadata.Statut_Broche_1 = msg.SB_1;\nmetadata.Statut_Broche_2 = msg.SB_2;\nmetadata.Statut_Broche_3 = msg.SB_3;\nmetadata.message=\"Jaune eteint Eteint\";\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 307,
+          "layoutY": 124
+        },
+        "type": "org.thingsboard.rule.engine.filter.TbJsFilterNode",
+        "name": "101",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "return (msg.btn_Jaune ==1 && msg.btn_Rouge==0 && msg.btn_Rouge==1);"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 617,
+          "layoutY": 139
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Jaune Eteint Bleue",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "metadata.Delta_SB_1 = msg.Delta_SB_1;\nmetadata.Delta_SB_2 = msg.Delta_SB_2;\nmetadata.Delta_SB_3 = msg.Delta_SB_3;\n\nmetadata.Statut_Broche_1 = msg.SB_1;\nmetadata.Statut_Broche_2 = msg.SB_2;\nmetadata.Statut_Broche_3 = msg.SB_3;\nmetadata.message=\"Jaune etient Bleue\";\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 618,
+          "layoutY": 210
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "Jaune Rouge Eteint",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "metadata.Delta_SB_1 = msg.Delta_SB_1;\nmetadata.Delta_SB_2 = msg.Delta_SB_2;\nmetadata.Delta_SB_3 = msg.Delta_SB_3;\n\nmetadata.Statut_Broche_1 = msg.SB_1;\nmetadata.Statut_Broche_2 = msg.SB_2;\nmetadata.Statut_Broche_3 = msg.SB_3;\nmetadata.message=\"Jaune Rouge  Eteint\";\nreturn {msg: msg, metadata: metadata, msgType: msgType};"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 940,
+          "layoutY": 148
+        },
+        "type": "org.thingsboard.rule.engine.mail.TbMsgToEmailNode",
+        "name": "To Email",
+        "debugMode": true,
+        "configuration": {
+          "fromTemplate": "yvantankeu@gmail.com",
+          "toTemplate": "yvantankeu@yahoo.fr",
+          "ccTemplate": null,
+          "bccTemplate": null,
+          "subjectTemplate": "Notification ${message}",
+          "mailBodyType": null,
+          "isHtmlTemplate": null,
+          "bodyTemplate": " Le statut de la broche 1 est ${Statut_Broche_1} \n Le statut de la broche 2 est ${Statut_Broche_2}\nLe statut de la broche 3 est ${Statut_Broche_3}\n et le message est ${message}\n\nDelta pour la broche 1 est ${delta_sb_1}\nDelta pour la broche 2 est ${delta_sb_2}\nDelta pour la broche 3 est ${delta_sb_3}"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 947,
+          "layoutY": 277
+        },
+        "type": "org.thingsboard.rule.engine.mail.TbSendEmailNode",
+        "name": "Send email",
+        "debugMode": true,
+        "configuration": {
+          "useSystemSmtpSettings": true,
+          "smtpHost": "localhost",
+          "smtpPort": 25,
+          "username": null,
+          "password": null,
+          "smtpProtocol": "smtp",
+          "timeout": 10000,
+          "enableTls": false,
+          "tlsVersion": "TLSv1.2",
+          "enableProxy": false,
+          "proxyHost": null,
+          "proxyPort": null,
+          "proxyUser": null,
+          "proxyPassword": null
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 61,
+          "layoutY": 399
+        },
+        "type": "org.thingsboard.rule.engine.metadata.CalculateDeltaNode",
+        "name": "DeltaRouge",
+        "debugMode": true,
+        "configuration": {
+          "inputValueKey": "SB_2",
+          "outputValueKey": "Delta_SB_2",
+          "useCache": true,
+          "addPeriodBetweenMsgs": false,
+          "periodValueKey": "periodInMs",
+          "round": null,
+          "tellFailureIfDeltaIsNegative": true
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 57,
+          "layoutY": 312
+        },
+        "type": "org.thingsboard.rule.engine.metadata.CalculateDeltaNode",
+        "name": "deltaJaune",
+        "debugMode": true,
+        "configuration": {
+          "inputValueKey": "SB_1",
+          "outputValueKey": "Delta_SB_1",
+          "useCache": true,
+          "addPeriodBetweenMsgs": true,
+          "periodValueKey": "periodInMs",
+          "round": null,
+          "tellFailureIfDeltaIsNegative": false
+        }
+      }
+    ],
+    "connections": [
+      {
+        "fromIndex": 0,
+        "toIndex": 1,
+        "type": "True"
+      },
+      {
+        "fromIndex": 1,
+        "toIndex": 17,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 2,
+        "toIndex": 6,
+        "type": "True"
+      },
+      {
+        "fromIndex": 2,
+        "toIndex": 0,
+        "type": "False"
+      },
+      {
+        "fromIndex": 3,
+        "toIndex": 16,
+        "type": "True"
+      },
+      {
+        "fromIndex": 3,
+        "toIndex": 7,
+        "type": "False"
+      },
+      {
+        "fromIndex": 4,
+        "toIndex": 17,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 5,
+        "toIndex": 17,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 6,
+        "toIndex": 17,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 7,
+        "toIndex": 4,
+        "type": "True"
+      },
+      {
+        "fromIndex": 7,
+        "toIndex": 8,
+        "type": "False"
+      },
+      {
+        "fromIndex": 8,
+        "toIndex": 5,
+        "type": "True"
+      },
+      {
+        "fromIndex": 8,
+        "toIndex": 2,
+        "type": "False"
+      },
+      {
+        "fromIndex": 9,
+        "toIndex": 11,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 10,
+        "toIndex": 17,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 11,
+        "toIndex": 12,
+        "type": "True"
+      },
+      {
+        "fromIndex": 12,
+        "toIndex": 13,
+        "type": "True"
+      },
+      {
+        "fromIndex": 12,
+        "toIndex": 14,
+        "type": "False"
+      },
+      {
+        "fromIndex": 13,
+        "toIndex": 17,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 14,
+        "toIndex": 15,
+        "type": "True"
+      },
+      {
+        "fromIndex": 14,
+        "toIndex": 3,
+        "type": "False"
+      },
+      {
+        "fromIndex": 15,
+        "toIndex": 17,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 16,
+        "toIndex": 17,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 17,
+        "toIndex": 18,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 19,
+        "toIndex": 9,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 20,
+        "toIndex": 19,
+        "type": "Success"
+      }
+    ],
+    "ruleChainConnections": null
+  }
+}
